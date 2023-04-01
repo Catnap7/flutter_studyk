@@ -7,9 +7,9 @@ void main() {
   runApp(
      ProviderScope(
       observers: [
-        Logger(),
+        CustomProviderLogger(),
       ],
-      child: MyApp(),
+      child: const MyApp(),
     ),
   );
 }

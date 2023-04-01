@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class Logger extends ProviderObserver {
+class CustomProviderLogger extends ProviderObserver {
 
   // 어떤 프로바이더가 실행되더라도 이 메소드가 실행됨
   @override

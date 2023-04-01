@@ -36,7 +36,7 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
-  go_router: ^5.1.7
+  go_router: ^6.5.2
   logger: any #for logging purpose
   flutter_riverpod: ^2.1.1
   # 리스트 값 받아올때 로딩중인것을 표현하기 위한 라이브러리
@@ -76,7 +76,7 @@ flutter:
   assets:
     - asset/img/group/
     - asset/img/jimin/
-    - asset/img/jk/
+    - asset/img/jungkook/
     - asset/img/v/
     - asset/img/j-hope/
     - asset/img/jin/

@@ -2,16 +2,23 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_studyk/common/layout/default_layout.dart';
+import 'package:flutter_studyk/common/provider/provider_observer.dart';
+import 'package:flutter_studyk/common/view/root_tab.dart';
 import 'package:flutter_studyk/info/model/members_model.dart';
+import 'package:flutter_studyk/info/view/info_detail_screen.dart';
+import 'package:flutter_studyk/info/view/info_screen.dart';
+import 'package:go_router/go_router.dart';
 import '../../info/provider/members_provider.dart';
-
+import 'package:logger/logger.dart';
 
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final List<MembersModel> state = ref.read(membersProvider);
+    final logger = Logger();
 
     return DefaultLayout(
       child: Column(
@@ -27,24 +34,31 @@ class HomeScreen extends ConsumerWidget {
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           CarouselSlider(
-            items: [
-              // "RM", "Jungkook", 'Jin', 'SUGA', 'j-hope', 'Jimin', 'V'
-
-            ].map((e) {
+            // "RM", "Jungkook", 'Jin', 'SUGA', 'j-hope', 'Jimin', 'V'
+          items: state.map((e) => e.name.toLowerCase()).toList()
+                .map((e) {
               return Builder(
                 builder: (BuildContext context) {
-                  return Container(
-                    width: MediaQuery.of(context).size.width,
-                    margin: EdgeInsets.symmetric(horizontal: 6.0),
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage('asset/img/$e/${e}_1.png'),
-                        fit: BoxFit.fitHeight,
+                  return InkWell(
+                    onTap: () {
+                      logger.d(e);
+                      context.goNamed(InfoDetailScreen.routeName, params: {
+                        'name': e,
+                      });
+                    },
+                    child: Container(
+                      width: MediaQuery.of(context).size.width,
+                      margin: EdgeInsets.symmetric(horizontal: 6.0),
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage('asset/img/$e/${e}_1.png'),
+                          fit: BoxFit.fitHeight,
+                        ),
                       ),
-                    ),
-                    child: Text(
-                      e.toUpperCase(),
-                      style: TextStyle(fontSize: 16.0),
+                      child: Text(
+                        e.toUpperCase(),
+                        style: TextStyle(fontSize: 16.0),
+                      ),
                     ),
                   );
                 },

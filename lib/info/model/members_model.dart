@@ -5,8 +5,11 @@ part 'members_model.g.dart';
 
 @JsonSerializable()
 class MembersModel {
+  // 활동명
   final String name;
+  // 한글이름
   final String koreanName;
+  // 영어이름
   final String englishName;
   final String birth;
   final String height;
