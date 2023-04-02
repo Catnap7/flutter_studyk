@@ -1,8 +1,18 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_studyk/info/model/members_model.dart';
 
-final membersProvider = StateNotifierProvider<MembersNotifier, List<MembersModel>>
-  ((ref) => MembersNotifier());
+final membersProvider =
+    StateNotifierProvider<MembersNotifier, List<MembersModel>>(
+        (ref) => MembersNotifier());
+
+// 멤버 상세 프로필 Provider
+final membersDetailProvider =
+    Provider.family<List<MembersModel>, String>((ref, name) {
+  final state = ref.watch(membersProvider);
+
+  // return ref.watch(membersProvider).where((element) => element.name == data).toList();
+  return state.where((element) => element.name.toLowerCase() == name).toList();
+});
 
 class MembersNotifier extends StateNotifier<List<MembersModel>> {
   MembersNotifier()
@@ -73,7 +83,7 @@ class MembersNotifier extends StateNotifier<List<MembersModel>> {
             position: 'Sub Vocalist, Dancer',
             mbti: 'INFP',
           ),
-    const MembersModel(
+          const MembersModel(
             name: 'Jungkook',
             koreanName: '전정국',
             englishName: 'Jeon Jeongguk',
