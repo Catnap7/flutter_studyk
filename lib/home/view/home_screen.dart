@@ -38,7 +38,6 @@ class HomeScreen extends ConsumerWidget {
                 builder: (BuildContext context) {
                   return InkWell(
                     onTap: () {
-                      logger.d(e);
                       context.goNamed(InfoDetailScreen.routeName, params: {
                         'name': e,
                       });

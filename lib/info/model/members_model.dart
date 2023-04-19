@@ -17,6 +17,7 @@ class MembersModel {
   final String bloodType;
   final String position;
   final String mbti;
+  final String? heroKey;
 
   const MembersModel({
     required this.name,
@@ -28,6 +29,7 @@ class MembersModel {
     required this.bloodType,
     required this.position,
     required this.mbti,
+    this.heroKey,
   });
 
   factory MembersModel.fromJson(Map<String, dynamic> json)

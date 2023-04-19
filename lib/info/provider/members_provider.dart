@@ -1,5 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_studyk/info/model/members_model.dart';
+import 'package:logger/logger.dart';
 
 final membersProvider =
     StateNotifierProvider<MembersNotifier, List<MembersModel>>(
@@ -10,7 +11,6 @@ final membersDetailProvider =
     Provider.family<List<MembersModel>, String>((ref, name) {
   final state = ref.watch(membersProvider);
 
-  // return ref.watch(membersProvider).where((element) => element.name == data).toList();
   return state.where((element) => element.name.toLowerCase() == name).toList();
 });
 
@@ -27,6 +27,7 @@ class MembersNotifier extends StateNotifier<List<MembersModel>> {
             bloodType: 'A',
             position: 'Leader, Main Rapper',
             mbti: 'ENFP',
+            heroKey: 'rm',
           ),
           const MembersModel(
             name: 'Jin',
@@ -38,6 +39,7 @@ class MembersNotifier extends StateNotifier<List<MembersModel>> {
             bloodType: 'O',
             position: 'Main Vocalist',
             mbti: 'INTP',
+            heroKey: 'jin',
           ),
           const MembersModel(
             name: 'SUGA',
@@ -49,6 +51,7 @@ class MembersNotifier extends StateNotifier<List<MembersModel>> {
             bloodType: 'O',
             position: 'Lead Rapper',
             mbti: 'ISTP',
+            heroKey: 'suga',
           ),
           const MembersModel(
             name: 'j-hope',

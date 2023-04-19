@@ -16,6 +16,7 @@ MembersModel _$MembersModelFromJson(Map<String, dynamic> json) => MembersModel(
       bloodType: json['bloodType'] as String,
       position: json['position'] as String,
       mbti: json['mbti'] as String,
+      heroKey: json['heroKey'] as String?,
     );
 
 Map<String, dynamic> _$MembersModelToJson(MembersModel instance) =>
@@ -29,4 +30,5 @@ Map<String, dynamic> _$MembersModelToJson(MembersModel instance) =>
       'bloodType': instance.bloodType,
       'position': instance.position,
       'mbti': instance.mbti,
+      'heroKey': instance.heroKey,
     };

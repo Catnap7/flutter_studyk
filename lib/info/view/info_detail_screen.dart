@@ -14,7 +14,10 @@ class InfoDetailScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(membersDetailProvider(name));
 
-    Logger().i(state.toList());
+    // need to get the name with no brackets
+
+    // final iname = state.asMap().map((key, value) => MapEntry(key, value.name)).;
+    // Logger().i(iname);
 
     return DefaultLayout(
       child: _memberCard(state),
@@ -23,35 +26,22 @@ class InfoDetailScreen extends ConsumerWidget {
   }
 
   _memberCard(state) {
-    final heroKey = state.map((e) => e.heroKey)?.toString();
-    final image = state.map((e) => e.image)?.toString().toLowerCase();
 
     return Column(
       children: [
-        if (heroKey != null)
           Hero(
-            tag: ObjectKey(heroKey),
+            tag: ObjectKey(name),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(12.0),
               child: // Asset image
                   Image.asset(
-                'asset/img/$image/${image}_1.png',
+                'asset/img/$name/${name}_1.png',
                 // AssetImage('asset/img/$e/${image}_1.png'),
                 fit: BoxFit.cover,
               ),
             ),
           ),
-        if (heroKey == null)
-          ClipRRect(
-            borderRadius: BorderRadius.circular(12.0),
-            child: // Asset image
-                Image.asset(
-              'asset/img/$image/${image}_1.png',
-              // AssetImage('asset/img/$e/${image}_1.png'),
-              fit: BoxFit.cover,
-            ),
-          ),
-        Text(state.map((e) => e.koreanName).toString()),
+        Text(state.map((e) => e.name).join(", ")),
       ],
     );
   }
