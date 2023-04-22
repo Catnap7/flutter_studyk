@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_studyk/common/const/colors.dart';
 import 'package:flutter_studyk/common/layout/default_layout.dart';
 import 'package:flutter_studyk/info/model/members_model.dart';
 import 'package:flutter_studyk/info/view/info_detail_screen.dart';
@@ -18,6 +19,7 @@ class HomeScreen extends ConsumerWidget {
     final logger = Logger();
 
     return DefaultLayout(
+      backgroundColor: BG_COLOR,
       child: Column(
         children: [
           Image.asset(

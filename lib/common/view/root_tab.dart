@@ -48,6 +48,7 @@ class _RootTabState extends State<RootTab> with SingleTickerProviderStateMixin{
         selectedItemColor: PRIMARY_COLOR,
         unselectedItemColor: BODY_TEXT_COLOR,
         selectedFontSize: 10,
+        backgroundColor: BG_COLOR,
         unselectedFontSize: 10,
         // 밑에 탭 눌렀을 때 효과같은거 설정
         type: BottomNavigationBarType.fixed,
