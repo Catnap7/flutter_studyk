@@ -15,13 +15,10 @@ class InfoDetailScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(membersDetailProvider(name));
 
-    // need to get the name with no brackets
-
-    // final iname = state.asMap().map((key, value) => MapEntry(key, value.name)).;
-    // Logger().i(iname);
-
     return DefaultLayout(
-      child: _memberCard(state),
+      child: SingleChildScrollView(
+        child: _memberCard(state),
+      ),
       backgroundColor: SECONDARY_COLOR,
       title: '정보 상세',
     );
@@ -49,63 +46,71 @@ class InfoDetailScreen extends ConsumerWidget {
         Container(
           decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(20.0),
-              topRight: Radius.circular(20.0),
+            borderRadius: BorderRadius.all(
+              Radius.circular(20.0),
             ),
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               const SizedBox(height: 16.0),
+
+              // Render Profile Info
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Column(
                     mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
+                    children: const [
                       Text(
                         "NickName (활동명)",
                         style: TextStyle(
                             fontSize: 16, fontWeight: FontWeight.normal),
                       ),
-                      const SizedBox(height: 22.0),
+                      SizedBox(height: 22.0),
                       Text(
                         "Korean Name (한국 이름)",
                         style: TextStyle(
                             fontSize: 16, fontWeight: FontWeight.normal),
                       ),
-                      const SizedBox(height: 22.0),
+                      SizedBox(height: 22.0),
                       Text(
                         "English Name (영어 이름)",
                         style: TextStyle(
                             fontSize: 16, fontWeight: FontWeight.normal),
                       ),
-                      const SizedBox(height: 22.0),
+                      SizedBox(height: 22.0),
                       Text(
                         "Birth Day (생일)",
                         style: TextStyle(
                             fontSize: 16, fontWeight: FontWeight.normal),
                       ),
-                      const SizedBox(height: 22.0),
+                      SizedBox(height: 22.0),
                       Text(
                         "Blood Type (혈액형)",
                         style: TextStyle(
                             fontSize: 16, fontWeight: FontWeight.normal),
                       ),
-                      const SizedBox(height: 22.0),
+                      SizedBox(height: 22.0),
                       Text(
                         "mbti (성격 유형)",
                         style: TextStyle(
                             fontSize: 16, fontWeight: FontWeight.normal),
                       ),
-                      const SizedBox(height: 22.0),
+                      SizedBox(height: 22.0),
                       Text(
                         "position (역할)",
                         style: TextStyle(
                             fontSize: 16, fontWeight: FontWeight.normal),
                       ),
+                      SizedBox(height: 22.0),
+                      Text(
+                        "Height/Weight (키/몸무게)",
+                        style: TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.normal),
+                      ),
+                      SizedBox(height: 22.0),
                     ],
                   ),
                   Column(
@@ -133,19 +138,19 @@ class InfoDetailScreen extends ConsumerWidget {
                         style: TextStyle(
                             fontSize: 20, fontWeight: FontWeight.bold),
                       ),
-                      const SizedBox(height: 16.0),
+                      const SizedBox(height: 18.0),
                       Text(
                         state.map((e) => e.bloodType).join(", "),
                         style: TextStyle(
                             fontSize: 20, fontWeight: FontWeight.bold),
                       ),
-                      const SizedBox(height: 16.0),
+                      const SizedBox(height: 18.0),
                       Text(
                         state.map((e) => e.mbti).join(", "),
                         style: TextStyle(
                             fontSize: 20, fontWeight: FontWeight.bold),
                       ),
-                      const SizedBox(height: 16.0),
+                      const SizedBox(height: 18.0),
                       Text(
                         state.map((e) => e.position).join(", "),
                         style: TextStyle(
@@ -163,6 +168,16 @@ class InfoDetailScreen extends ConsumerWidget {
               ),
             ],
           ),
+        ),
+        const SizedBox(height: 16.0),
+        Container(
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.all(
+              Radius.circular(20.0),
+            ),
+          ),
+          height: 200,
         ),
       ],
     );
