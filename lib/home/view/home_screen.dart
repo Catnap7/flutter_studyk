@@ -16,7 +16,6 @@ class HomeScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final List<MembersModel> state = ref.read(membersProvider);
-    final logger = Logger();
 
     return DefaultLayout(
       backgroundColor: BG_COLOR,
@@ -28,10 +27,12 @@ class HomeScreen extends ConsumerWidget {
             width: double.infinity,
             fit: BoxFit.cover,
           ),
-          Text(
-            "Profile",
+          const SizedBox(height: 16.0),
+          const Text(
+            "Member's Profile",
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
+          const SizedBox(height: 16.0),
           CarouselSlider(
             // "RM", "Jungkook", 'Jin', 'SUGA', 'j-hope', 'Jimin', 'V'
           items: state.map((e) => e.name.toLowerCase()).toList()
@@ -72,6 +73,15 @@ class HomeScreen extends ConsumerWidget {
               scrollDirection: Axis.horizontal,
             ),
           ),
+          const SizedBox(height: 16.0),
+          const Text(
+            "Korea Culture",
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 16.0),
+
+
+
         ],
       ),
     );

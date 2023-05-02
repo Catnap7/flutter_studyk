@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_studyk/common/const/colors.dart';
 import 'package:flutter_studyk/common/layout/default_layout.dart';
 import 'package:flutter_studyk/info/provider/members_provider.dart';
-import 'package:logger/logger.dart';
 
 class InfoDetailScreen extends ConsumerWidget {
   static String get routeName => 'infoDetail';
@@ -16,11 +15,11 @@ class InfoDetailScreen extends ConsumerWidget {
     final state = ref.watch(membersDetailProvider(name));
 
     return DefaultLayout(
+      backgroundColor: SECONDARY_COLOR,
+      title: '정보 상세',
       child: SingleChildScrollView(
         child: _memberCard(state),
       ),
-      backgroundColor: SECONDARY_COLOR,
-      title: '정보 상세',
     );
   }
 
@@ -57,8 +56,8 @@ class InfoDetailScreen extends ConsumerWidget {
 
               // Render Profile Info
               Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment:CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Column(
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -66,49 +65,49 @@ class InfoDetailScreen extends ConsumerWidget {
                       Text(
                         "NickName (활동명)",
                         style: TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.normal),
+                            fontSize: 14, fontWeight: FontWeight.normal),
                       ),
                       SizedBox(height: 22.0),
                       Text(
                         "Korean Name (한국 이름)",
                         style: TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.normal),
+                            fontSize: 14, fontWeight: FontWeight.normal),
                       ),
                       SizedBox(height: 22.0),
                       Text(
                         "English Name (영어 이름)",
                         style: TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.normal),
+                            fontSize: 14, fontWeight: FontWeight.normal),
                       ),
                       SizedBox(height: 22.0),
                       Text(
                         "Birth Day (생일)",
                         style: TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.normal),
+                            fontSize: 14, fontWeight: FontWeight.normal),
                       ),
                       SizedBox(height: 22.0),
                       Text(
                         "Blood Type (혈액형)",
                         style: TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.normal),
+                            fontSize: 14, fontWeight: FontWeight.normal),
                       ),
                       SizedBox(height: 22.0),
                       Text(
                         "mbti (성격 유형)",
                         style: TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.normal),
+                            fontSize: 14, fontWeight: FontWeight.normal),
                       ),
                       SizedBox(height: 22.0),
                       Text(
                         "position (역할)",
                         style: TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.normal),
+                            fontSize: 14, fontWeight: FontWeight.normal),
                       ),
                       SizedBox(height: 22.0),
                       Text(
                         "Height/Weight (키/몸무게)",
                         style: TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.normal),
+                            fontSize: 14, fontWeight: FontWeight.normal),
                       ),
                       SizedBox(height: 22.0),
                     ],
@@ -118,49 +117,49 @@ class InfoDetailScreen extends ConsumerWidget {
                       Text(
                         state.map((e) => e.name).join(", "),
                         style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.bold),
+                            fontSize: 18, fontWeight: FontWeight.bold),
                       ),
                       const SizedBox(height: 16.0),
                       Text(
                         state.map((e) => e.koreanName).join(", "),
                         style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.bold),
+                            fontSize: 18, fontWeight: FontWeight.bold),
                       ),
                       const SizedBox(height: 16.0),
                       Text(
                         state.map((e) => e.englishName).join(", "),
                         style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.bold),
+                            fontSize: 18, fontWeight: FontWeight.bold),
                       ),
                       const SizedBox(height: 16.0),
                       Text(
                         state.map((e) => e.birth).join(", "),
                         style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.bold),
+                            fontSize: 18, fontWeight: FontWeight.bold),
                       ),
                       const SizedBox(height: 18.0),
                       Text(
                         state.map((e) => e.bloodType).join(", "),
                         style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.bold),
+                            fontSize: 18, fontWeight: FontWeight.bold),
                       ),
                       const SizedBox(height: 18.0),
                       Text(
                         state.map((e) => e.mbti).join(", "),
                         style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.bold),
+                            fontSize: 18, fontWeight: FontWeight.bold),
                       ),
                       const SizedBox(height: 18.0),
                       Text(
                         state.map((e) => e.position).join(", "),
                         style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.bold),
+                            fontSize: 18, fontWeight: FontWeight.bold),
                       ),
                       const SizedBox(height: 16.0),
                       Text(
                         "${state.map((e) => e.height).join(", ")}cm / ${state.map((e) => e.weight).join(", ")}kg",
                         style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.bold),
+                            fontSize: 18, fontWeight: FontWeight.bold),
                       ),
                     ],
                   ),

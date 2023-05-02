@@ -43,7 +43,6 @@ class _RootTabState extends State<RootTab> with SingleTickerProviderStateMixin{
   @override
   Widget build(BuildContext context) {
     return DefaultLayout(
-      title: 'Study K',
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: PRIMARY_COLOR,
         unselectedItemColor: BODY_TEXT_COLOR,
@@ -83,8 +82,8 @@ class _RootTabState extends State<RootTab> with SingleTickerProviderStateMixin{
         children: const [
           HomeScreen(),
           InfoScreen(),
-          SettingsScreen(),
           StudyScreen(),
+          SettingsScreen(),
         ],
       ),
     );

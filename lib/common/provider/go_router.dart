@@ -4,6 +4,7 @@ import 'package:flutter_studyk/common/view/root_tab.dart';
 import 'package:flutter_studyk/common/view/splash_screen.dart';
 import 'package:flutter_studyk/info/view/info_detail_screen.dart';
 import 'package:flutter_studyk/info/view/info_screen.dart';
+import 'package:flutter_studyk/study/view/study_detail_screen.dart';
 import 'package:go_router/go_router.dart';
 
 final routerProvider = Provider<GoRouter>((ref) {
@@ -38,6 +39,13 @@ List<GoRoute> get _routes => [
               ),
             ],
           ),
+          GoRoute(
+            path: 'studyDetail/:title',
+            name: StudyDetailScreen.routeName,
+            builder: (_, __) => StudyDetailScreen(
+              title: __.params['title']!,
+            ),
+          ),
         ],
       ),
       GoRoute(
@@ -45,11 +53,7 @@ List<GoRoute> get _routes => [
         name: SplashScreen.routeName,
         builder: (_, __) => SplashScreen(),
       ),
-      /*GoRoute(
-        path: 'info',
-        name: InfoScreen.routeName,
-        builder: (_, __) => InfoScreen(),
-      ),*/
+
     ];
 
 String? _redirectLogic(_, GoRouterState state) {

@@ -9,8 +9,8 @@ class InfoScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultLayout(
-      child: const Placeholder(),
       title: '정보',
+      child: const Placeholder(),
     );
   }
 }

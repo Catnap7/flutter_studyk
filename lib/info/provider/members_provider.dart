@@ -94,7 +94,7 @@ class MembersNotifier extends StateNotifier<List<MembersModel>> {
             height: '179',
             weight: '71',
             bloodType: 'A',
-            position: 'Main Vocalist, Lead Dancer, Sub Rapper',
+            position: 'Main Vocalist, Lead Dancer',
             mbti: 'ISFP',
           ),
         ]);
