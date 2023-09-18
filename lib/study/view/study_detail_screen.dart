@@ -14,7 +14,7 @@ class StudyDetailScreen extends StatelessWidget {
       title: title,
       child: Column(
         children: [
-          Text(Drama().kor_title.toString()),
+          Text(.kor_title.toString()),
           const SizedBox(
             height: 16.0,
           ),
